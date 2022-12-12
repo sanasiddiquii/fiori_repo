@@ -1,0 +1,31 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" 
+controllerName="ey.fin.ar.controller.View1">
+    <Page title="View 1">
+        <headerContent>
+ <Button tooltip="Go To Next" icon="sap-icon://action" press="onNext"
+                    visible="{device>/system/phone}"
+            ></Button>
+        </headerContent>
+        <content>
+            <SearchField id="idSearch" search="onSearch" liveChange="onSearch"></SearchField>
+       <List id="idList" items="{path : '/fruits',
+                                      sorter: { path: 'type', group: true }
+                                    }" mode="SingleSelectMaster" selectionChange="onSelect">
+                <headerToolbar>
+                    <Toolbar>
+                        <Button icon="sap-icon://delete" type="Reject" tooltip="deleteItem"></Button>
+                    </Toolbar>
+                </headerToolbar>
+                <items>
+                    <ObjectListItem title="{name}" intro="{type}"
+                    icon="{image}" number="{price}" numberUnit="{unit}">
+                    <firstStatus>
+                        <ObjectStatus text="{status}" state="Success"></ObjectStatus>
+                    </firstStatus>
+                </ObjectListItem>
+                </items> 
+            </List>
+            <!-- <Button text="Go To Next" press="onNext"></Button> -->
+        </content>
+    </Page>
+</mvc:View>
